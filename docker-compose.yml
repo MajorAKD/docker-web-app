@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx
+    container_name: nginx
+    hostname: nginx
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 80:80
+    restart: unless-stopped
+    cpus: '0.5'
+    mem_limit: 512m
+    mem_reservation: 256m
+    pids_limit: 100
+
+  uwsgi-1:
+    build: .
+    image: majorakd/uwsgi:latest
+    container_name: uwsgi-1
+    hostname: uwsgi-1
+    volumes:
+      - ./WebApp:/WebApp
+    restart: unless-stopped
+    cpus: '0.5'
+    mem_limit: 512m
+    mem_reservation: 256m
+    pids_limit: 100
+
+  uwsgi-2:
+    image: majorakd/uwsgi:latest
+    container_name: uwsgi-2
+    hostname: uwsgi-2
+    volumes:
+      - ./WebApp:/WebApp
+    restart: unless-stopped
+    cpus: '0.5'
+    mem_limit: 512m
+    mem_reservation: 256m
+    pids_limit: 100
+    
+  uwsgi-3:
+    image: majorakd/uwsgi:latest
+    container_name: uwsgi-3
+    hostname: uwsgi-3
+    volumes:
+      - ./WebApp:/WebApp
+    restart: unless-stopped
+    cpus: '0.5'             
+    mem_limit: 512m          
+    mem_reservation: 256m    
+    pids_limit: 100          
+     
+   
+
+
+
+
+
