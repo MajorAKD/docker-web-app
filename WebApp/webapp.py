@@ -16,6 +16,7 @@ def firstpage():
     <body style="color:burlywood">
         <h1 style="color:blue">You are currentlly using the {hostname} server</h1>
         <h1>{message}</h1>
+        <p>Use the <strong>next</strong> route to view the next page by adding "/next" </p>
     </body>
     </html>
     """
