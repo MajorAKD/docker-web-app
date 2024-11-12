@@ -8,7 +8,8 @@ RUN pip install uwsgi && pip install -r requirements.txt
 ARG UWSGI_HTTP_PORT=8080
 ENV UWSGI_HTTP_PORT=$UWSGI_HTTP_PORT
 
-ARG USWGI_APP=webapp
+#get enviroment variable for app module
+ARG UWSGI_APP=webapp
 ENV UWSGI_APP=$UWSGI_APP
 
 RUN useradd -ms /bin/bash admin
